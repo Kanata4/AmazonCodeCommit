@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+  build:
+    commands:
+      - echo "开始构建..."
+      - npm install
+      - echo npm run build completed on 'date'
+artifacts:
+  base-directory: build
+  files:
+    - dist/shop/*
+    - dist/shop/assets/
