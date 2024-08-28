@@ -8,9 +8,9 @@ phases:
     commands:
       - echo "开始构建..."
       - npm install
+      - npm run build
       - echo npm run build completed on 'date'
 artifacts:
-  base-directory: build
   files:
     - dist/shop/*
     - dist/shop/assets/
