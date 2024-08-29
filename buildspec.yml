@@ -18,7 +18,7 @@ phases:
       - npm run build
       - echo npm run build completed on 'date'
       #date命令获取一下日期作为标签
-      - TAG ='date "+%Y%m%d%H%M%S"'
+      - TAG=$(date "+%Y%m%d%H%M%S")
       #build镜像(镜像名直接设置成ECR规定的名字)
       - docker build -t 010928203930.dkr.ecr.ap-northeast-1.amazonaws.com/ecr0829:$TAG ./
       - echo docker build completed on 'date'
