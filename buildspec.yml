@@ -18,7 +18,7 @@ phases:
       - npm run build
       - echo npm run build completed on 'date'
       #date命令获取一下日期作为标签
-      - TAG ='date "+$Y$m$d$H$M$S"'
+      - TAG ='date "+%Y%m%d%H%M%S"'
       #build镜像(镜像名直接设置成ECR规定的名字)
       - docker build -t 010928203930.dkr.ecr.ap-northeast-1.amazonaws.com/ecr0829:$TAG ./
       - echo docker build completed on 'date'
@@ -33,7 +33,7 @@ phases:
       #包含ECS Service的容器名,以及更新后要使用的image URi
       #Codepipeline的部署阶段将使用此信息来创建ECS Service引用的task定义的新version,然后它会使用新的task定义ECS Service
       # %s会被替换成后面的部分。
-      - printf '[{"name":"myhttpd","imageUri":"%s"}]' 010928203930.dkr.ecr.ap-northeast-1.amazonaws.com/ecr0829:$TAG > imagedefinitions.json
+      - printf '[{"name":"mynginx","imageUri":"%s"}]' 010928203930.dkr.ecr.ap-northeast-1.amazonaws.com/ecr0829:$TAG > imagedefinitions.json
       - cat imagedefinitions.json
 artifacts:
   files:
